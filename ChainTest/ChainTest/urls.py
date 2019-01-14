@@ -14,8 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include,path
+
+from ChainTest import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.PersonListView.as_view(), name='person_changelist'),
+    path('add/', views.PersonCreateView.as_view(), name='person_add'),
+    path('<int:pk>/', views.PersonUpdateView.as_view(), name='person_change'),
+    path('ajax/load-cities/', views.load_cities, name='ajax_load_cities'),
 ]
