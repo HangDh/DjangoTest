@@ -5,8 +5,11 @@
   <form method="post" novalidate>
     {% csrf_token %}
     <table>
-      {{ form.as_table }}
+        {% for person in people %}
+          <li>{{ person.name }}</li>
+        {% endfor %}
     </table>
+  <br/>
     <button type="submit">Save</button>
     <a href="{% url 'person_changelist' %}">Nevermind</a>
   </form>
