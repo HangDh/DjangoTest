@@ -24,4 +24,5 @@ urlpatterns = [
     path('add/', views.PersonCreateView.as_view(), name='person_add'),
     path('<int:pk>/', views.PersonUpdateView.as_view(), name='person_change'),
     path('ajax/load-cities/', views.load_cities, name='ajax_load_cities'),
+    path('task_create', views.form_handle, name='form_handle')
 ]

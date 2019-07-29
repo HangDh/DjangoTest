@@ -18,4 +18,13 @@ class PersonForm(forms.ModelForm):
                 pass
         elif self.instance.pk:
             self.fields['city'].queryset = self.instance.country.city_set.order_by('name')
+
+class TaskCreateForm(forms.Form):
+    cutting = forms.BooleanField(label='Cięcie piłą', required=False)
+    insulating = forms.BooleanField(label='Izomowanie', required=False)
+    gaskets = forms.BooleanField(label='Gumownia', required=False)
+    frames = forms.BooleanField(label='Montaż ramy', required=False)
+    vents = forms.BooleanField(label='Montaż skrzydeł', required=False)
+    glass_frames = forms.BooleanField(label='Szklenie ramy', required=False)
+    glass_vents = forms.BooleanField(label='Szklenie skrzydeł', required=False)
          
