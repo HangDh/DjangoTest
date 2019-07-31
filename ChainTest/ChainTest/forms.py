@@ -27,4 +27,14 @@ class TaskCreateForm(forms.Form):
     vents = forms.BooleanField(label='Montaż skrzydeł', required=False)
     glass_frames = forms.BooleanField(label='Szklenie ramy', required=False)
     glass_vents = forms.BooleanField(label='Szklenie skrzydeł', required=False)
+
+class ChociceTaskForm(forms.Form):
+    processes = [
+        ('Cut', 'Cutting'),
+        ('Mill', 'Milling'),
+        ('Mont', 'Montage')
+    ]
+
+    process_1 = forms.MultipleChoiceField(choices=processes)
+    process_2 = forms.MultipleChoiceField(choices=processes)
          
